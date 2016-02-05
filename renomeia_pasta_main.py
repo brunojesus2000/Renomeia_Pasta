@@ -3,10 +3,10 @@
 #Este é um teste de um programa que renomea pastas e arquivos retirando caracteres especiais
 # Diretorio teste: /Users/bruno/Desktop/Faculdade2
 
-import os, sys, shutil
+import os, sys, shutil, string
 
 
-caminho_atual = "/Users/bruno/Desktop/DirTeste"
+caminho_atual = "/Users/bruno.paixao/Desktop/DirTeste"
 
 print "Varrendo Caminho: " + caminho_atual
 
@@ -31,9 +31,8 @@ for pasta in range(cont_dir):
 
 		print True
 	else:
-
 		pasta_old = diretorio_espelho[pasta]
-		pasta_new = (diretorio_espelho[pasta] + str(pasta))
+		pasta_new = pasta_old.translate(None, 'ã\'$*çé́?̃\%_-^̂' )
 		print pasta_old + " indo para " + pasta_new
 		os.rename(pasta_old, pasta_new)
 		diretorio_espelho = varre_diretorio(caminho_atual)
